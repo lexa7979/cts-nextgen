@@ -1,0 +1,19 @@
+{
+  "name": "cts-nextgen-server",
+  "version": "0.0.1",
+  "description": "Backend of CTS next generation using Express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Cygni",
+    "exercise",
+    "Express.js"
+  ],
+  "author": "alexander.urban@cygni.se",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

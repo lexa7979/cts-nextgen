@@ -1,0 +1,23 @@
+{
+  "name": "cts-nextgen",
+  "version": "0.0.1",
+  "description": "CTS next generation - fullstack exercise from cygni/competence using React.js och Express.js",
+  "main": "index.js",
+  "scripts": {
+	  "lint": "eslint . --ext js,jsx"
+  },
+  "keywords": [
+    "Cygni",
+    "exercise",
+    "React.js",
+    "Express.js"
+  ],
+  "author": "alexander.urban@cygni.se",
+  "license": "MIT",
+  "devDependencies": {
+    "@lexa79/eslint-config": "^1.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-jest": "^22.20.0",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}
