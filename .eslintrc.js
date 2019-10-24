@@ -29,10 +29,13 @@ module.exports = {
 	// https://eslint.org/docs/user-guide/configuring#configuring-plugins
     plugins: [
 		"react",
+		"react-hooks",
 		"jest",
 	],
 	// https://eslint.org/docs/user-guide/configuring#configuring-rules
     rules: {
+		"react-hooks/rules-of-hooks": [ "error" ], // Checks rules of Hooks
+	    "react-hooks/exhaustive-deps": [ "warn" ], // Checks effect dependencies
 		"jest/no-large-snapshots": [ "warn", { maxSize: 50 } ],
 	},
 	// https://github.com/yannickcr/eslint-plugin-react#configuration
