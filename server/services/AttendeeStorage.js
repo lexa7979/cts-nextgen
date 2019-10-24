@@ -24,18 +24,20 @@ class AttendeeStorage {
 			`Invalid type of argument "storageID" (${typeof storageID})` );
 
 		if ( storageInstances[storageID] == null ) {
-			storageInstances[storageID] = new AttendeeStorage();
+			storageInstances[storageID] = new AttendeeStorage( storageID === "test" );
 		}
 
 		return storageInstances[storageID];
 	}
 
 	// eslint-disable-next-line require-jsdoc
-	constructor() {
-		this.data = [
-			{ id: 1, firstname: "Alexander", lastname: "Urban", attending: "yes" },
-			{ id: 2, firstname: "Johnny", lastname: "Puma", attending: "no" },
-		];
+	constructor( includeTestData ) {
+		this.data = includeTestData
+			? [
+				{ id: 1, firstname: "Alexander", lastname: "Urban", attending: "yes" },
+				{ id: 2, firstname: "Johnny", lastname: "Puma", attending: "no" },
+			]
+			: [];
 
 		this.locales = [ "sv-SE", "de-DE" ];
 	}
