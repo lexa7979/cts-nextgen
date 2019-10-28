@@ -25,6 +25,10 @@ function App() {
 }
 
 /**
+ * Please note:
+ * This function will be used together with useEffect(),
+ * so it has to synchronically return nothing or a function.
+ *
  * @param	{number}	pingInterval
  * @param	{function}	setPingInterval
  * @param	{function}	setServerState
@@ -32,14 +36,17 @@ function App() {
  * @returns	{null|function}
  */
 function setupServerPing( pingInterval, setPingInterval, setServerState ) {
+	// eslint-disable-next-line require-jsdoc
+	const checkAndSetServerState = async () => {
+		const serverState = await isServerAvailable();
+		setServerState( serverState );
+	};
+
 	if ( pingInterval == null ) {
-		setTimeout( () => {
-			const intervalID = setInterval( async () => {
-				const serverState = await isServerAvailable();
-				setServerState( serverState );
-			}, 3000 );
-			setPingInterval( intervalID );
-		}, 100 );
+		setTimeout( checkAndSetServerState, 100 );
+
+		const intervalID = setInterval( checkAndSetServerState, 3000 );
+		setPingInterval( intervalID );
 	}
 
 	return () => {
