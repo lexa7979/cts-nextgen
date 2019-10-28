@@ -5,13 +5,13 @@ import React from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-export default FormRegister;
-
 const propsSchema = yup.object( {
 	serverState: yup.string().required()
 		.lowercase()
 		.oneOf( [ "up", "down" ] ),
 } );
+
+export default FormRegister;
 
 /**
  * Renders a component which lets the user input data
@@ -71,16 +71,95 @@ function composeForm() {
 }
 
 /**
- * @param	{object}	values
+ * @param	{object}	inputValues
  * @param	{object}	formikBag
- * @param	{function}	formikBag.setSubmitting
+ * @param	{object}	formikBag.setStatus
  * @param	{function}	formikBag.resetForm
+ * @param	{function}	formikBag.setSubmitting
  */
-function submitFormik( values, { setSubmitting, resetForm } ) {
-	// eslint-disable-next-line no-console
-	console.log( values );
-	resetForm();
+async function submitFormik( inputValues, { status, setStatus, resetForm, setSubmitting } ) {
+	const saveError = await checkAndSaveAttendeeOnServer( inputValues );
+
+	if ( saveError == null ) {
+		resetForm( { status: { lastSubmit: { success: true, message: "Registration successful" } } } );
+	} else {
+		setStatus( { ...status, lastSubmit: { success: false, message: saveError } } );
+	}
+
 	setSubmitting( false );
+}
+
+/**
+ * @param	{object}	attendeeData
+ *
+ * @returns	{null|string}
+ *		Null if successful; or
+ *		Error-message in case of problems.
+ */
+async function checkAndSaveAttendeeOnServer( attendeeData ) {
+	const checkResult = await checkAttendeeOnServer( attendeeData );
+	if ( checkResult !== false ) {
+		return checkResult === true
+			? "The given person was already registered, before"
+			: checkResult;
+	}
+
+	const saveResult = await saveAttendeeOnServer( attendeeData );
+	return saveResult;
+}
+
+/**
+ * @param	{object}	attendeeData
+ *
+ * @returns	{boolean|string}
+ *		True (or false) iff a registration for the given person
+ *			was (not) found on the server; or
+ *		Error-message in case of problems.
+ */
+async function checkAttendeeOnServer( attendeeData ) {
+	const task = "Checking the registration on the server";
+
+	try {
+		const response = await fetch( `/registration/${attendeeData.firstname}/${attendeeData.lastname}` );
+		if ( response.status !== 200 ) {
+			return `${task} failed`;
+		}
+
+		const data = await response.json();
+		return data.success;
+	} catch ( err ) {
+		return `${task} failed with error ${err.message}`;
+	}
+}
+
+/**
+ * @param	{object}	attendeeData
+ *
+ * @returns	{null|string}
+ *		Null if successful; or
+ *		Error-message in case of problems.
+ */
+async function saveAttendeeOnServer( attendeeData ) {
+	const task = "Saving the registration on the server";
+
+	try {
+		const response = await fetch(
+			"/registration",
+			{
+				method:  "PUT",
+				body:    JSON.stringify( attendeeData ),
+				headers: { "Content-Type": "application/json" },
+			}
+		);
+		if ( response.status !== 200 ) {
+			return `${task} failed with code ${response.status}`;
+		}
+
+		const data = await response.json();
+		return data.success ? null : `${task} failed`;
+	} catch ( err ) {
+		return `${task} failed with error ${err.message}`;
+	}
 }
 
 /**
@@ -92,8 +171,9 @@ function submitFormik( values, { setSubmitting, resetForm } ) {
  * @returns	{object}
  *		React component
  */
-function composeFormikFields( { dirty, isValid, isSubmitting } ) {
+function composeFormikFields( { status, dirty, isValid, isSubmitting } ) {
 	return <Form id="registerForm">
+		<div>{status && status.lastSubmit && status.lastSubmit.message}</div>
 		<div>
 			<label htmlFor="firstname">Firstname:</label>
 			<Field name="firstname" id="firstname" />
@@ -114,6 +194,9 @@ function composeFormikFields( { dirty, isValid, isSubmitting } ) {
 			<label htmlFor="attendingMaybe">Maybe</label>
 			<ErrorMessage name="attending" component="div" />
 		</div>
-		<button type="submit" disabled={!dirty || !isValid || isSubmitting}>Submit</button>
+		<div>
+			<button type="submit" disabled={!dirty || !isValid || isSubmitting}>Submit</button>{" "}
+			<button type="reset" disabled={!dirty}>Reset</button>
+		</div>
 	</Form>;
 }
