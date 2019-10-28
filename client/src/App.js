@@ -18,9 +18,7 @@ function App() {
 	useEffect( () => setupServerPing( pingInterval, setPingInterval, setServerState ), [] );
 
 	return <div className="App">
-		<div className={`server-state ${serverState ? "up" : "down"}`}>
-			{serverState ? "Server is UP" : "Server is DOWN"}
-		</div>
+		<div className={`server-state ${serverState}`}>{`Server is ${String( serverState ).toUpperCase()}`}</div>
 	</div>;
 }
 
@@ -38,8 +36,8 @@ function App() {
 function setupServerPing( pingInterval, setPingInterval, setServerState ) {
 	// eslint-disable-next-line require-jsdoc
 	const checkAndSetServerState = async () => {
-		const serverState = await isServerAvailable();
-		setServerState( serverState );
+		const available = await isServerAvailable();
+		setServerState( available ? "up" : "down" );
 	};
 
 	if ( pingInterval == null ) {
