@@ -2,6 +2,8 @@ const express = require( "express" );
 const app = express();
 const port = 3011;
 
+app.use( express.json() );
+
 const routes = require( "./routes" );
 Object.keys( routes )
 	.filter( name => typeof routes[name].handleAppRequest === "function" )

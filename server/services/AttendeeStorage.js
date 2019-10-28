@@ -118,7 +118,7 @@ class AttendeeStorage {
 			}
 		}
 
-		throw new Error( "Unexpectedly can't found old item any longer" );
+		throw new Error( "Unexpectedly can't find old item any longer" );
 	}
 
 	/**

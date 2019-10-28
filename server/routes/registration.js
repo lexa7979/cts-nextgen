@@ -29,11 +29,12 @@ function handleAppRequest( basepath ) {
 
 	this.put( basepath, ( req, res ) => {
 		if (
-			typeof req.body.firstname !== "string" || req.body.firstname === ""
+			req.body == null || typeof req.body !== "object"
+			|| typeof req.body.firstname !== "string" || req.body.firstname === ""
 			|| typeof req.body.lastname !== "string" || req.body.lastname === ""
 			|| typeof req.body.attending !== "string" || req.body.attending === ""
 		) {
-			res.status( 400 );
+			res.status( 400 ).send();
 			return;
 		}
 
