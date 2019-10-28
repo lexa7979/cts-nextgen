@@ -4,16 +4,17 @@
   "private": true,
   "dependencies": {
     "cross-env": "^6.0.3",
+    "formik": "^2.0.2",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "cross-env PORT=3012 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "proxy": "http://localhost:3011",
   "browserslist": {

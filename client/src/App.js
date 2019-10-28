@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 import "./App.scss";
+import FormRegister from "./components/FormRegister";
 
 export default App;
 
@@ -12,13 +13,13 @@ export default App;
  */
 function App() {
 	const [ pingInterval, setPingInterval ] = useState( null );
-	const [ serverState, setServerState ] = useState( false );
+	const [ serverState, setServerState ] = useState( "down" );
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect( () => setupServerPing( pingInterval, setPingInterval, setServerState ), [] );
 
 	return <div className="App">
-		<div className={`server-state ${serverState}`}>{`Server is ${String( serverState ).toUpperCase()}`}</div>
+		<FormRegister serverState={serverState}/>
 	</div>;
 }
 
