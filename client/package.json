@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@lexa79/react-dot-matrix-logo": "0.0.1",
     "cross-env": "^6.0.3",
     "formik": "^2.0.2",
     "node-sass": "^4.13.0",

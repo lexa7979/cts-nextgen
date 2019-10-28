@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 
 import React, { useState, useEffect } from "react";
+import Logo from "@lexa79/react-dot-matrix-logo";
 
 import "./App.scss";
 import FormRegister from "./components/FormRegister";
@@ -19,7 +20,27 @@ function App() {
 	useEffect( () => setupServerPing( pingInterval, setPingInterval, setServerState ), [] );
 
 	return <div className="App">
-		<FormRegister serverState={serverState}/>
+		<div className="header">
+			<Logo
+				text={"CYGNI TECH SUMMIT\n2020_"}
+				background="#333"
+				color={[ "white", "#9c4" ]}
+				zoom={4}
+				animation="running-point:#09f"
+			/>
+		</div>
+		<div className="main">
+			<FormRegister serverState={serverState}/>
+		</div>
+		<div className="footer">
+			<Logo
+				text="BY LEXA"
+				background="#333"
+				color="#9c4"
+				zoom={2}
+				animation="running-point:#333"
+			/>
+		</div>
 	</div>;
 }
 
