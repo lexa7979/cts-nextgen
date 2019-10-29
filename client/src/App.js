@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 
 import React, { useState, useEffect } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 import Logo from "@lexa79/react-dot-matrix-logo";
 
 import "./App.scss";
@@ -19,7 +21,9 @@ function App() {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect( () => setupServerPing( pingInterval, setPingInterval, setServerState ), [] );
 
-	return <div className="App">
+	return (
+		<div className="app">
+			<CssBaseline/>
 		<div className="header">
 			<Logo
 				text={"CYGNI TECH SUMMIT\n2020_"}
@@ -41,7 +45,8 @@ function App() {
 				animation="running-point:#333"
 			/>
 		</div>
-	</div>;
+		</div>
+	);
 }
 
 /**

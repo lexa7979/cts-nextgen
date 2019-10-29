@@ -3,7 +3,17 @@
 
 import React from "react";
 import * as yup from "yup";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
+
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import FormLabel from "@material-ui/core/FormLabel";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
+import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
 
 const propsSchema = yup.object( {
 	serverState: yup.string().required()
@@ -164,39 +174,164 @@ async function saveAttendeeOnServer( attendeeData ) {
 
 /**
  * @param	{object}	formikBag
- * @param	{boolean}	formikBag.dirty
- * @param	{boolean}	formikBag.isValid
- * @param	{boolean}	formikBag.isSubmitting
  *
  * @returns	{object}
  *		React component
  */
-function composeFormikFields( { status, dirty, isValid, isSubmitting } ) {
+function composeFormikFields( formikBag ) {
 	return <Form id="registerForm">
-		<div>{status && status.lastSubmit && status.lastSubmit.message}</div>
-		<div>
-			<label htmlFor="firstname">Firstname:</label>
-			<Field name="firstname" id="firstname" />
-			<ErrorMessage name="firstname" component="div" />
-		</div>
-		<div>
-			<label htmlFor="lastname">Lastname:</label>
-			<Field name="lastname" id="lastname" />
-			<ErrorMessage name="lastname" component="div" />
-		</div>
-		<div>
-			<label htmlFor="attending">Are you attending the conference?</label>
-			<Field type="radio" id="attendingYes" name="attending" value="yes"/>
-			<label htmlFor="attendingYes">Yes</label>
-			<Field type="radio" id="attendingNo" name="attending" value="no"/>
-			<label htmlFor="attendingNo">No</label>
-			<Field type="radio" id="attendingMaybe" name="attending" value="maybe"/>
-			<label htmlFor="attendingMaybe">Maybe</label>
-			<ErrorMessage name="attending" component="div" />
-		</div>
-		<div>
-			<button type="submit" disabled={!dirty || !isValid || isSubmitting}>Submit</button>{" "}
-			<button type="reset" disabled={!dirty}>Reset</button>
-		</div>
+		<Grid container direction="column" justify="flex-start" alignItems="stretch" spacing={2}>
+			{composeFormResponseItem( formikBag )}
+			{composeNameInputItem( formikBag )}
+			{composeAttendingSelectItem( formikBag )}
+			{composeFormButtons( formikBag )}
+		</Grid>
 	</Form>;
+}
+
+/**
+ * @param	{object}	formikBag
+ *
+ * @returns	{object}	React component
+ */
+function composeFormResponseItem( formikBag ) {
+	const { status, setStatus } = formikBag;
+
+	const message = status && status.lastSubmit && !status.lastSubmit.showed ? status.lastSubmit.message : null;
+
+	if ( message ) {
+		// setStatus( { ...status, lastSubmit: { ...status.lastSubmit, showed: true } } );
+		// const success = status.lastSubmit.success;
+
+		return (
+			<Snackbar
+				// style={{ backgroundColor: success ?  }}
+				anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+				open
+				autoHideDuration={3000}
+			>
+				<SnackbarContent
+					message={message}
+					role="alertdialog"
+				/>
+			</Snackbar>
+		);
+	}
+
+	return null;
+}
+
+/**
+ * @param	{object}	formikBag
+ *
+ * @returns	{object}	React component
+ */
+function composeNameInputItem( formikBag ) {
+	const { values, handleChange, errors } = formikBag;
+
+	return (
+		<Grid item container direction="row" spacing={1}>
+			<Grid item xs={12} sm={6}>
+				<TextField
+					id="firstname"
+					value={values.firstname}
+					label="Firstname"
+					onChange={handleChange}
+					margin="normal"
+					variant="outlined"
+					fullWidth
+					required
+					error={Boolean( errors.firstname )}
+					helperText={errors.firstname}
+				/>
+			</Grid>
+			<Grid item xs={12} sm={6}>
+				<TextField
+					id="lastname"
+					value={values.lastname}
+					label="Lastname"
+					onChange={handleChange}
+					margin="normal"
+					variant="outlined"
+					fullWidth
+					required
+					error={Boolean( errors.lastname )}
+					helperText={errors.lastname}
+				/>
+			</Grid>
+		</Grid>
+	);
+}
+
+/**
+ * @param	{object}	formikBag
+ *
+ * @returns	{object}
+ * 		React component
+ */
+function composeAttendingSelectItem( formikBag ) {
+	const { values, handleChange } = formikBag;
+
+	return (
+		<Grid item container direction="column" justify="center" alignItems="stretch">
+			<Grid item xs={12}>
+				<FormLabel component="legend">
+					Are you attending the conference?
+				</FormLabel>
+			</Grid>
+			<Grid item xs={12}>
+				<RadioGroup
+					aria-label="position"
+					name="attending"
+					value={values.attending}
+					onChange={handleChange}
+					row
+				>
+					<FormControlLabel
+						value="yes"
+						label="Yes"
+						labelPlacement="bottom"
+						control={<Radio color="primary"/>}
+					/>
+					<FormControlLabel
+						value="no"
+						label="No"
+						labelPlacement="bottom"
+						control={<Radio color="primary"/>}
+					/>
+					<FormControlLabel
+						value="maybe"
+						label="Maybe"
+						labelPlacement="bottom"
+						control={<Radio color="primary"/>}
+					/>
+				</RadioGroup>
+			</Grid>
+		</Grid>
+	);
+}
+
+/**
+ * @param	{object}	formikBag
+ *
+ * @returns	{object}
+ * 		React component
+ */
+function composeFormButtons( formikBag ) {
+	const { dirty, isValid, isSubmitting } = formikBag;
+
+	return (
+		<Grid item container direction="row" justify="flex-end" spacing={2}>
+			<Grid item>
+				<Button type="submit" variant="contained" color="primary" disabled={!dirty || !isValid || isSubmitting}>
+					Submit
+				</Button>
+			</Grid>
+			<Grid item>
+				<Button type="reset" variant="contained" disabled={!dirty}>
+					Reset
+				</Button>
+			</Grid>
+		</Grid>
+	);
 }
