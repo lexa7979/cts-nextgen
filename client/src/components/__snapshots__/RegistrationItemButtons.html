@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+  </head>
+  <body style="display: flex; flex-flow: column nowrap; justify-content: center; align-items: center; height: 100%;">
+    <h2>
+      Component RegistrationItemButtons - when rendering into snapshots with valid properties - delivers expected result  (-> check snapshot)
+    </h2>
+    <!--[ Content from unit test: ]-->
+    <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item MuiGrid-justify-xs-flex-end">
+      <div class="MuiGrid-root MuiGrid-item">
+        <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                tabindex="-1"
+                type="submit"
+                disabled
+        >
+          <span class="MuiButton-label">
+            Submit
+          </span>
+        </button>
+      </div>
+      <div class="MuiGrid-root MuiGrid-item">
+        <button class="MuiButtonBase-root MuiButton-root MuiButton-contained Mui-disabled Mui-disabled"
+                tabindex="-1"
+                type="reset"
+                disabled
+        >
+          <span class="MuiButton-label">
+            Reset
+          </span>
+        </button>
+      </div>
+    </div>
+    <!--[ End of included content ]-->
+    <br>
+    <br>
+    &lt;RegistrationItemButtons formikBag={exampleFormikBag} /&gt;
+  </body>
+</html>

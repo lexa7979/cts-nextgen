@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+  </head>
+  <body style="display: flex; flex-flow: column nowrap; justify-content: center; align-items: center; height: 100%;">
+    <h2>
+      Component RegistrationItemName - when rendering into snapshots with valid properties - delivers expected result  (-> check snapshot)
+    </h2>
+    <!--[ Content from unit test: ]-->
+    <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item">
+      <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
+        <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
+          <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+                 data-shrink="false"
+                 for="firstname"
+                 id="firstname-label"
+          >
+            Firstname
+            <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
+               *
+            </span>
+          </label>
+          <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
+            <input type="text"
+                   aria-invalid="false"
+                   id="firstname"
+                   required
+                   value
+                   class="MuiInputBase-input MuiOutlinedInput-input"
+            >
+            <fieldset aria-hidden="true"
+                      style="padding-left:8px"
+                      class="PrivateNotchedOutline-root-327 MuiOutlinedInput-notchedOutline"
+            >
+              <legend class="PrivateNotchedOutline-legend-328"
+                      style="width:0.01px"
+              >
+                <span>
+                  &#8203;
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
+        <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
+          <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+                 data-shrink="false"
+                 for="lastname"
+                 id="lastname-label"
+          >
+            Lastname
+            <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
+               *
+            </span>
+          </label>
+          <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
+            <input type="text"
+                   aria-invalid="false"
+                   id="lastname"
+                   required
+                   value
+                   class="MuiInputBase-input MuiOutlinedInput-input"
+            >
+            <fieldset aria-hidden="true"
+                      style="padding-left:8px"
+                      class="PrivateNotchedOutline-root-327 MuiOutlinedInput-notchedOutline"
+            >
+              <legend class="PrivateNotchedOutline-legend-328"
+                      style="width:0.01px"
+              >
+                <span>
+                  &#8203;
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--[ End of included content ]-->
+    <br>
+    <br>
+    &lt;RegistrationItemName formikBag={exampleFormikBag} /&gt;
+  </body>
+</html>
