@@ -5,8 +5,9 @@
   "dependencies": {
     "@lexa79/react-dot-matrix-logo": "0.0.1",
     "@material-ui/core": "^4.5.2",
+    "@material-ui/icons": "^4.5.1",
     "cross-env": "^6.0.3",
-    "formik": "^2.0.2",
+    "formik": "^2.0.3",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -16,7 +17,8 @@
   "scripts": {
     "start": "cross-env PORT=3012 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test --reporters=jest-spec-reporter",
+    "test:update": "react-scripts test -u"
   },
   "proxy": "http://localhost:3011",
   "browserslist": {
@@ -30,5 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@lexa79/jest-matchers": "^1.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest-spec-reporter": "^1.0.10"
   }
 }

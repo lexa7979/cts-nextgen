@@ -8,18 +8,27 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 const propsSchema = yup.object( {
-	formikBag: yup.object().required(),
+	formikBag: yup.object()
+		.shape( {
+			dirty:        yup.boolean().required(),
+			isValid:      yup.boolean().required(),
+			isSubmitting: yup.boolean().required(),
+		} )
+		.required(),
 } );
 
 export default RegistrationItemButtons;
 
 /**
+ * Renders a component which show the buttons to finalise
+ * the register form.
+ *
  * @param	{object}	props
  *
  * @returns	{object}	React component
  */
 function RegistrationItemButtons( props ) {
-	propsSchema.strict().validate( props );
+	propsSchema.strict().validateSync( props );	// eslint-disable-line no-sync
 
 	const { dirty, isValid, isSubmitting } = props.formikBag;
 

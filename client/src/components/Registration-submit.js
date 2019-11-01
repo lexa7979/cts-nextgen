@@ -5,6 +5,9 @@ export {
 };
 
 /**
+ * Helper function which takes the input data of the register form
+ * and tries to post it to the database server.
+ *
  * @param	{object}	inputValues
  * @param	{object}	formikBag
  */

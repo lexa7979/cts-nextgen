@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
 
 import Logo from "@lexa79/react-dot-matrix-logo";
 
@@ -33,9 +34,9 @@ function App() {
 					animation="running-point:#09f"
 				/>
 			</div>
-			<div className="main">
+			<Grid container direction="column" alignItems="center" className="main middle">
 				<Registration serverState={serverState}/>
-			</div>
+			</Grid>
 			<div className="footer">
 				<Logo
 					text="BY LEXA"

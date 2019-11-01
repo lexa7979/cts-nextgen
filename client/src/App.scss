@@ -18,6 +18,10 @@
 		flex: 1 1 auto;
 		box-sizing: border-box;
 		padding: 5px;
+
+		&.middle {
+			@include flex( column, nowrap, stretch, center );
+		}
 	}
 
 	.footer {

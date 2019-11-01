@@ -5,12 +5,15 @@ import React from "react";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+
+import "./Registration.scss";
 
 import RegistrationItemResponse from "./RegistrationItemResponse";
 import RegistrationItemName from "./RegistrationItemName";
 import RegistrationItemAttending from "./RegistrationItemAttending";
 import RegistrationItemButtons from "./RegistrationItemButtons";
-import { submitRegistration } from "./RegistrationSubmit";
+import { submitRegistration } from "./Registration-submit";
 
 const propsSchema = yup.object( {
 	serverState: yup.string().required()
@@ -26,8 +29,7 @@ export default Registration;
  *
  * @param	{object}	props
  *
- * @returns	{object}
- *		React component
+ * @returns	{object}	React component
  */
 function Registration( props ) {
 	propsSchema.strict().validateSync( props );	// eslint-disable-line no-sync
@@ -52,27 +54,30 @@ const formInputSchema = yup.object( {
 /* eslint-enable newline-per-chained-call */
 
 /**
- * @returns	{object}
+ * @returns	{object}	React component
  */
 function composeForm() {
-	return <div>
-		<h1>Register for the conference</h1>
-		<Formik
-			initialValues={formInputSchema.default()}
-			validationSchema={formInputSchema}
-			validateOnMount={true}
-			onSubmit={submitRegistration}
-		>
-			{composeFormikFields}
-		</Formik>
-	</div>;
+	return (
+		<Grid item className="registration">
+			<Typography variant="h3" align="center">
+				Register for the conference
+			</Typography>
+			<Formik
+				initialValues={formInputSchema.default()}
+				validationSchema={formInputSchema}
+				validateOnMount={true}
+				onSubmit={submitRegistration}
+			>
+				{composeFormikFields}
+			</Formik>
+		</Grid>
+	);
 }
 
 /**
  * @param	{object}	formikBag
  *
- * @returns	{object}
- *		React component
+ * @returns	{object}	React component
  */
 function composeFormikFields( formikBag ) {
 	return (
@@ -94,10 +99,12 @@ function composeFormikFields( formikBag ) {
 }
 
 /**
- * @returns	{object}
+ * @returns	{object}	React component
  */
 function composeDisabledForm() {
-	return <div>
-		Register form is temporary disabled because of missing connection to the database server
-	</div>;
+	return (
+		<Typography>
+			Register form is temporary disabled because of missing connection to the database server
+		</Typography>
+	);
 }
