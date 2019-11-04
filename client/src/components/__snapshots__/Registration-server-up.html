@@ -8,235 +8,235 @@
       Component Registration - when rendering into snapshots with server-state "up" - delivers expected result  (-> check snapshot)
     </h2>
     <!--[ Content from unit test: ]-->
-    <div class="MuiGrid-root registration MuiGrid-item">
-      <h3 class="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter">
-        Register for the conference
-      </h3>
-      <form action="#"
-            id="registerForm"
-      >
-        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column">
-          <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item">
-            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
-              <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
-                <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-                       data-shrink="false"
-                       for="firstname"
-                       id="firstname-label"
+    <h3 class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom MuiTypography-alignCenter">
+      Register for the conference
+    </h3>
+    <form action="#"
+          id="registerForm"
+    >
+      <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column">
+        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
+            <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
+              <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+                     data-shrink="false"
+                     for="firstname"
+                     id="firstname-label"
+              >
+                Firstname
+                <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
+                   
+                  *
+                </span>
+              </label>
+              <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
+                <input type="text"
+                       aria-invalid="false"
+                       id="firstname"
+                       required
+                       value
+                       class="MuiInputBase-input MuiOutlinedInput-input"
                 >
-                  Firstname
-                  <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
-                     *
-                  </span>
-                </label>
-                <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
-                  <input type="text"
-                         aria-invalid="false"
-                         id="firstname"
-                         required
-                         value
-                         class="MuiInputBase-input MuiOutlinedInput-input"
-                  >
-                  <fieldset aria-hidden="true"
-                            style="padding-left:8px"
-                            class="PrivateNotchedOutline-root-456 MuiOutlinedInput-notchedOutline"
-                  >
-                    <legend class="PrivateNotchedOutline-legend-457"
-                            style="width:0.01px"
-                    >
-                      <span>
-                        &#8203;
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
-              <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
-                <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-                       data-shrink="false"
-                       for="lastname"
-                       id="lastname-label"
+                <fieldset aria-hidden="true"
+                          style="padding-left:8px"
+                          class="PrivateNotchedOutline-root-456 MuiOutlinedInput-notchedOutline"
                 >
-                  Lastname
-                  <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
-                     *
-                  </span>
-                </label>
-                <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
-                  <input type="text"
-                         aria-invalid="false"
-                         id="lastname"
-                         required
-                         value
-                         class="MuiInputBase-input MuiOutlinedInput-input"
+                  <legend class="PrivateNotchedOutline-legend-457"
+                          style="width:0.01px"
                   >
-                  <fieldset aria-hidden="true"
-                            style="padding-left:8px"
-                            class="PrivateNotchedOutline-root-456 MuiOutlinedInput-notchedOutline"
-                  >
-                    <legend class="PrivateNotchedOutline-legend-457"
-                            style="width:0.01px"
-                    >
-                      <span>
-                        &#8203;
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
+                    <span>
+                      &#8203;
+                    </span>
+                  </legend>
+                </fieldset>
               </div>
             </div>
           </div>
-          <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center">
-            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-              <legend class="MuiFormLabel-root">
-                Are you attending the conference?
-              </legend>
-            </div>
-            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-              <div class="MuiFormGroup-root MuiFormGroup-row"
-                   role="radiogroup"
-                   aria-label="choose one"
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6">
+            <div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth">
+              <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+                     data-shrink="false"
+                     for="lastname"
+                     id="lastname-label"
               >
-                <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
-                  <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
-                        aria-disabled="false"
+                Lastname
+                <span class="MuiFormLabel-asterisk MuiInputLabel-asterisk">
+                   
+                  *
+                </span>
+              </label>
+              <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
+                <input type="text"
+                       aria-invalid="false"
+                       id="lastname"
+                       required
+                       value
+                       class="MuiInputBase-input MuiOutlinedInput-input"
+                >
+                <fieldset aria-hidden="true"
+                          style="padding-left:8px"
+                          class="PrivateNotchedOutline-root-456 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend class="PrivateNotchedOutline-legend-457"
+                          style="width:0.01px"
                   >
-                    <span class="MuiIconButton-label">
-                      <input type="radio"
-                             class="PrivateSwitchBase-input-474"
-                             name="attending"
-                             value="yes"
-                      >
-                      <div class="PrivateRadioButtonIcon-root-487">
-                        <svg class="MuiSvgIcon-root"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
-                          </path>
-                        </svg>
-                        <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
-                          </path>
-                        </svg>
-                      </div>
+                    <span>
+                      &#8203;
                     </span>
-                  </span>
-                  <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
-                    Yes
-                  </span>
-                </label>
-                <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
-                  <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
-                        aria-disabled="false"
-                  >
-                    <span class="MuiIconButton-label">
-                      <input type="radio"
-                             class="PrivateSwitchBase-input-474"
-                             name="attending"
-                             value="no"
-                      >
-                      <div class="PrivateRadioButtonIcon-root-487">
-                        <svg class="MuiSvgIcon-root"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
-                          </path>
-                        </svg>
-                        <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
-                          </path>
-                        </svg>
-                      </div>
-                    </span>
-                  </span>
-                  <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
-                    No
-                  </span>
-                </label>
-                <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
-                  <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
-                        aria-disabled="false"
-                  >
-                    <span class="MuiIconButton-label">
-                      <input type="radio"
-                             class="PrivateSwitchBase-input-474"
-                             name="attending"
-                             value="maybe"
-                      >
-                      <div class="PrivateRadioButtonIcon-root-487">
-                        <svg class="MuiSvgIcon-root"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
-                          </path>
-                        </svg>
-                        <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
-                             focusable="false"
-                             viewbox="0 0 24 24"
-                             aria-hidden="true"
-                             role="presentation"
-                        >
-                          <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
-                          </path>
-                        </svg>
-                      </div>
-                    </span>
-                  </span>
-                  <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
-                    Maybe
-                  </span>
-                </label>
+                  </legend>
+                </fieldset>
               </div>
-            </div>
-          </div>
-          <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item MuiGrid-justify-xs-flex-end">
-            <div class="MuiGrid-root MuiGrid-item">
-              <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
-                      tabindex="-1"
-                      type="submit"
-                      disabled
-              >
-                <span class="MuiButton-label">
-                  Submit
-                </span>
-              </button>
-            </div>
-            <div class="MuiGrid-root MuiGrid-item">
-              <button class="MuiButtonBase-root MuiButton-root MuiButton-contained Mui-disabled Mui-disabled"
-                      tabindex="-1"
-                      type="reset"
-                      disabled
-              >
-                <span class="MuiButton-label">
-                  Reset
-                </span>
-              </button>
             </div>
           </div>
         </div>
-      </form>
-    </div>
+        <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
+            <legend class="MuiFormLabel-root">
+              Are you attending the conference?
+            </legend>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
+            <div class="MuiFormGroup-root MuiFormGroup-row"
+                 role="radiogroup"
+                 aria-label="choose one"
+            >
+              <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
+                <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
+                      aria-disabled="false"
+                >
+                  <span class="MuiIconButton-label">
+                    <input type="radio"
+                           class="PrivateSwitchBase-input-474"
+                           name="attending"
+                           value="yes"
+                    >
+                    <div class="PrivateRadioButtonIcon-root-487">
+                      <svg class="MuiSvgIcon-root"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
+                        </path>
+                      </svg>
+                      <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
+                        </path>
+                      </svg>
+                    </div>
+                  </span>
+                </span>
+                <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
+                  Yes
+                </span>
+              </label>
+              <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
+                <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
+                      aria-disabled="false"
+                >
+                  <span class="MuiIconButton-label">
+                    <input type="radio"
+                           class="PrivateSwitchBase-input-474"
+                           name="attending"
+                           value="no"
+                    >
+                    <div class="PrivateRadioButtonIcon-root-487">
+                      <svg class="MuiSvgIcon-root"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
+                        </path>
+                      </svg>
+                      <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
+                        </path>
+                      </svg>
+                    </div>
+                  </span>
+                </span>
+                <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
+                  No
+                </span>
+              </label>
+              <label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom">
+                <span class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-471 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary"
+                      aria-disabled="false"
+                >
+                  <span class="MuiIconButton-label">
+                    <input type="radio"
+                           class="PrivateSwitchBase-input-474"
+                           name="attending"
+                           value="maybe"
+                    >
+                    <div class="PrivateRadioButtonIcon-root-487">
+                      <svg class="MuiSvgIcon-root"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z">
+                        </path>
+                      </svg>
+                      <svg class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-488"
+                           focusable="false"
+                           viewbox="0 0 24 24"
+                           aria-hidden="true"
+                           role="presentation"
+                      >
+                        <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z">
+                        </path>
+                      </svg>
+                    </div>
+                  </span>
+                </span>
+                <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">
+                  Maybe
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item MuiGrid-justify-xs-flex-end">
+          <div class="MuiGrid-root MuiGrid-item">
+            <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                    tabindex="-1"
+                    type="submit"
+                    disabled
+            >
+              <span class="MuiButton-label">
+                Submit
+              </span>
+            </button>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+            <button class="MuiButtonBase-root MuiButton-root MuiButton-contained Mui-disabled Mui-disabled"
+                    tabindex="-1"
+                    type="reset"
+                    disabled
+            >
+              <span class="MuiButton-label">
+                Reset
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
     <!--[ End of included content ]-->
     <br>
     <br>

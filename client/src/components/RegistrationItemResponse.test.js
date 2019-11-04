@@ -3,11 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { shallow } from "enzyme";
-
 import RegistrationItemResponse from "./RegistrationItemResponse";
-import Snackbar from "@material-ui/core/Snackbar";
-import SnackbarContent from "@material-ui/core/SnackbarContent";
 
 const initialFormikBag = {
 	status:    {},
