@@ -17,7 +17,13 @@ const propsSchema = yup.object( {
 			handleChange: yup.object()
 				.required()
 				.test( "is-function", "${path}: callback expected", value => typeof value === "function" ),
+			handleBlur: yup.object()
+				.required()
+				.test( "is-function", "${path}: callback expected", value => typeof value === "function" ),
 			errors:       yup.object()
+				.required()
+				.test( "is-object", "${path}: object expected", value => value instanceof Object ),
+			touched:      yup.object()
 				.required()
 				.test( "is-object", "${path}: object expected", value => value instanceof Object ),
 		} )
@@ -38,7 +44,7 @@ export default RegistrationItemName;
 function RegistrationItemName( props ) {
 	propsSchema.strict().validateSync( props );	// eslint-disable-line no-sync
 
-	const { values, handleChange, errors } = props.formikBag;
+	const { values, handleChange, handleBlur, errors, touched } = props.formikBag;
 
 	return (
 		<Grid item container direction="row" spacing={1}>
@@ -48,12 +54,13 @@ function RegistrationItemName( props ) {
 					value={values.firstname}
 					label="Firstname"
 					onChange={handleChange}
+					onBlur={handleBlur}
 					margin="normal"
 					variant="outlined"
 					fullWidth
 					required
-					error={Boolean( errors.firstname )}
-					helperText={errors.firstname}
+					error={Boolean( errors.firstname ) && touched.firstname}
+					helperText={touched.firstname ? errors.firstname : null}
 				/>
 			</Grid>
 			<Grid item xs={12} sm={6}>
@@ -62,12 +69,13 @@ function RegistrationItemName( props ) {
 					value={values.lastname}
 					label="Lastname"
 					onChange={handleChange}
+					onBlur={handleBlur}
 					margin="normal"
 					variant="outlined"
 					fullWidth
 					required
-					error={Boolean( errors.lastname )}
-					helperText={errors.lastname}
+					error={Boolean( errors.lastname ) && touched.lastname}
+					helperText={touched.lastname ? errors.lastname : null}
 				/>
 			</Grid>
 		</Grid>
