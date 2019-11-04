@@ -58,8 +58,8 @@ const formInputSchema = yup.object( {
  */
 function composeForm() {
 	return (
-		<Grid item className="registration">
-			<Typography variant="h3" align="center">
+		<>
+			<Typography variant="h3" align="center" gutterBottom>
 				Register for the conference
 			</Typography>
 			<Formik
@@ -70,7 +70,7 @@ function composeForm() {
 			>
 				{composeFormikFields}
 			</Formik>
-		</Grid>
+		</>
 	);
 }
 
@@ -103,8 +103,10 @@ function composeFormikFields( formikBag ) {
  */
 function composeDisabledForm() {
 	return (
-		<Typography>
-			Register form is temporary disabled because of missing connection to the database server
-		</Typography>
+		<Grid item>
+			<Typography>
+				Register form is temporary disabled because of missing connection to the database server
+			</Typography>
+		</Grid>
 	);
 }
