@@ -21,6 +21,6 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "jest-spec-reporter": "^1.0.8",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
